@@ -75,7 +75,7 @@
       "<rootDir>/libs/"
     ],
     "moduleNameMapper": {
-      "^@app/star-wars(|/.*)$": "<rootDir>/libs/star-wars/src/$1"
+      "^@app/swapi(|/.*)$": "<rootDir>/libs/swapi/src/$1"
     }
   }
 }

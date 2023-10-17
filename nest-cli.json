@@ -7,13 +7,13 @@
     "webpack": true
   },
   "projects": {
-    "star-wars": {
+    "swapi": {
       "type": "library",
-      "root": "libs/star-wars",
+      "root": "libs/swapi",
       "entryFile": "index",
-      "sourceRoot": "libs/star-wars/src",
+      "sourceRoot": "libs/swapi/src",
       "compilerOptions": {
-        "tsConfigPath": "libs/star-wars/tsconfig.lib.json"
+        "tsConfigPath": "libs/swapi/tsconfig.lib.json"
       }
     }
   }

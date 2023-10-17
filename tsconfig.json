@@ -18,11 +18,11 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@app/star-wars": [
-        "libs/star-wars/src"
+      "@app/swapi": [
+        "libs/swapi/src"
       ],
-      "@app/star-wars/*": [
-        "libs/star-wars/src/*"
+      "@app/swapi/*": [
+        "libs/swapi/src/*"
       ]
     }
   }
