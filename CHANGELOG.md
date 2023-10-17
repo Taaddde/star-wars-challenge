@@ -17,6 +17,12 @@
 - **Error crítico:** Descripción del error crítico corregido.
 - **Problema Menor:** Descripción de un problema menor resuelto.
 
+## [1.1.1] - 17/10/2023
+
+### Cambiado
+
+- ✨ Nombre de librería "star-wars" por "swapi"
+
 ## [1.1.0] - 17/10/2023
 
 ### Agregado
