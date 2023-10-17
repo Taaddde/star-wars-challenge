@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true
+  },
+  "projects": {
+    "star-wars": {
+      "type": "library",
+      "root": "libs/star-wars",
+      "entryFile": "index",
+      "sourceRoot": "libs/star-wars/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/star-wars/tsconfig.lib.json"
+      }
+    }
+  }
+}
