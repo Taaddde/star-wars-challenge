@@ -1,22 +1,5 @@
 # Cambios Recientes
 
-## [Versión Actual] - Fecha Actual
-
-### Agregado
-
-- **Nueva Funcionalidad:** Descripción de la nueva funcionalidad añadida.
-- **Otra Característica:** Descripción de otra característica añadida.
-
-### Cambiado
-
-- **Mejora de Rendimiento:** Descripción de la mejora de rendimiento realizada.
-- **Cambio en la Interfaz de Usuario:** Descripción del cambio en la interfaz de usuario.
-
-### Corregido
-
-- **Error crítico:** Descripción del error crítico corregido.
-- **Problema Menor:** Descripción de un problema menor resuelto.
-
 ## [1.2.0] - 17/10/2023
 
 ### Agregado
