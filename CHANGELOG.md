@@ -17,11 +17,18 @@
 - **Error crítico:** Descripción del error crítico corregido.
 - **Problema Menor:** Descripción de un problema menor resuelto.
 
+## [1.2.0] - 17/10/2023
+
+### Agregado
+
+- ✨ Añadida librería axios de nest js
+- ✨ Options de la librería swapi para setear la url base
+
 ## [1.1.1] - 17/10/2023
 
 ### Cambiado
 
-- ✨ Nombre de librería "star-wars" por "swapi"
+- 🔄 Nombre de librería "star-wars" por "swapi"
 
 ## [1.1.0] - 17/10/2023
 
