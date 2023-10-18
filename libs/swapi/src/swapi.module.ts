@@ -1,8 +1,24 @@
-import { Module } from '@nestjs/common';
+import { HttpModule } from '@nestjs/axios';
+import { DynamicModule, Module } from '@nestjs/common';
 import { SwapiService } from './swapi.service';
+import { SwapiOption } from './swapi.options';
 
 @Module({
-  providers: [SwapiService],
-  exports: [SwapiService],
+  imports: [HttpModule]
 })
-export class SwapiModule {}
+
+export class SwapiModule {
+  static forRoot(options: SwapiOption): DynamicModule {
+    return {
+      module: SwapiModule,
+      providers: [
+        {
+          provide: SwapiOption,
+          useValue: new SwapiOption(options),
+        },
+        SwapiService,
+      ],
+      exports: [SwapiService],
+    };
+  }
+}
