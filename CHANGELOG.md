@@ -1,5 +1,15 @@
 # Cambios Recientes
 
+## [1.3.0] - 19/10/2023
+
+### Agregado
+
+- ✨ Mongoose al proyecto
+- ✨ Librería que gestiona la base de datos en mongoose
+- ✨ Inicialización de "media" y "user" como schemas de la base de datos
+- ✨ Conexión del módulo de mongoose con la app principal
+
+
 ## [1.2.0] - 17/10/2023
 
 ### Agregado
