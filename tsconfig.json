@@ -23,6 +23,12 @@
       ],
       "@app/swapi/*": [
         "libs/swapi/src/*"
+      ],
+      "@app/db-mongoose": [
+        "libs/db-mongoose/src"
+      ],
+      "@app/db-mongoose/*": [
+        "libs/db-mongoose/src/*"
       ]
     }
   }

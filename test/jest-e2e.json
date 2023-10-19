@@ -14,6 +14,8 @@
     "@app/star-wars/(.*)": "<rootDir>/../libs/star-wars/src/$1",
     "@app/star-wars": "<rootDir>/../libs/star-wars/src",
     "@app/swapi/(.*)": "<rootDir>/../libs/swapi/src/$1",
-    "@app/swapi": "<rootDir>/../libs/swapi/src"
+    "@app/swapi": "<rootDir>/../libs/swapi/src",
+    "@app/db-mongoose/(.*)": "<rootDir>/../libs/db-mongoose/src/$1",
+    "@app/db-mongoose": "<rootDir>/../libs/db-mongoose/src"
   }
 }

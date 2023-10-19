@@ -15,6 +15,15 @@
       "compilerOptions": {
         "tsConfigPath": "libs/swapi/tsconfig.lib.json"
       }
+    },
+    "db-mongoose": {
+      "type": "library",
+      "root": "libs/db-mongoose",
+      "entryFile": "index",
+      "sourceRoot": "libs/db-mongoose/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/db-mongoose/tsconfig.lib.json"
+      }
     }
   }
 }
