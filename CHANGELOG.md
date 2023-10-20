@@ -1,5 +1,17 @@
 # Cambios Recientes
 
+## [1.4.0] - 19/10/2023
+
+### Agregado
+
+- ✨ Añadido bcrypt, jsonwebtoken y mapped-types
+- ✨ Servicios para user, CRUD, autenticación y login
+- ✨ Encriptación de password al momento de guardar el usuario
+- ✨ Endpoint POST /user para la creación de usuario
+- ✨ DTO's para validación de creación de usuario y media
+- ✨ Ahora la entity de user esta mas completa y con mas información
+- ✨ Nuevo interceptor "class-validator" para hacer una respuesta 400 genérica
+
 ## [1.3.0] - 19/10/2023
 
 ### Agregado

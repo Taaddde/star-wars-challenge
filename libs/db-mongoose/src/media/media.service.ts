@@ -16,7 +16,7 @@ export class MediaService {
     return this.mediaModel.find().exec();
   }
 
-  async findOne(id: string): Promise<Media | null> {
+  async findOneById(id: string): Promise<Media | null> {
     return this.mediaModel.findById(id).exec();
   }
 

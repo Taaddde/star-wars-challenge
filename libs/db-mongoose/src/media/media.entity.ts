@@ -1,8 +1,11 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document, now } from 'mongoose';
+import { Document, Types, now } from 'mongoose';
 
 @Schema({timestamps: true})
 export class Media {
+    @Prop({ default: null })
+    _id: Types.ObjectId;
+  
     @Prop({ required: true })
     title: string;
 
