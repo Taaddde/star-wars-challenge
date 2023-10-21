@@ -1,5 +1,18 @@
 # Cambios Recientes
 
+## [2.2.0] - 21/10/2023
+
+### Agregado
+
+- ✨ Middleware de validación de JWT
+- ✨ Middleware de validación de admin
+
+## [2.1.1] - 21/10/2023
+
+### Cambiado
+
+- 🐛 Las variables de entorno no estaban siendo cargadas correctamente por app.config.js
+
 ## [2.1.0] - 21/10/2023
 
 ### Cambiado
