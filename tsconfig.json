@@ -29,6 +29,12 @@
       ],
       "@app/db-mongoose/*": [
         "libs/db-mongoose/src/*"
+      ],
+      "@app/authenticate": [
+        "libs/authenticate/src"
+      ],
+      "@app/authenticate/*": [
+        "libs/authenticate/src/*"
       ]
     }
   }

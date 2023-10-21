@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './controllers/app.controller';
-import { AppService } from './services/app.service';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 import { DbMongooseModule } from '@app/db-mongoose';
 import { AppConfig } from './app.config';
 import { SwapiModule } from '@app/swapi';

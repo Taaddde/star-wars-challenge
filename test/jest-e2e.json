@@ -16,6 +16,8 @@
     "@app/swapi/(.*)": "<rootDir>/../libs/swapi/src/$1",
     "@app/swapi": "<rootDir>/../libs/swapi/src",
     "@app/db-mongoose/(.*)": "<rootDir>/../libs/db-mongoose/src/$1",
-    "@app/db-mongoose": "<rootDir>/../libs/db-mongoose/src"
+    "@app/db-mongoose": "<rootDir>/../libs/db-mongoose/src",
+    "@app/authenticate/(.*)": "<rootDir>/../libs/authenticate/src/$1",
+    "@app/authenticate": "<rootDir>/../libs/authenticate/src"
   }
 }

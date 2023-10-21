@@ -79,7 +79,8 @@
     ],
     "moduleNameMapper": {
       "^@app/swapi(|/.*)$": "<rootDir>/libs/swapi/src/$1",
-      "^@app/db-mongoose(|/.*)$": "<rootDir>/libs/db-mongoose/src/$1"
+      "^@app/db-mongoose(|/.*)$": "<rootDir>/libs/db-mongoose/src/$1",
+      "^@app/authenticate(|/.*)$": "<rootDir>/libs/authenticate/src/$1"
     }
   }
 }

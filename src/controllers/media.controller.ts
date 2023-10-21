@@ -1,5 +1,5 @@
 import { Controller, Get, Version } from '@nestjs/common';
-import { AppService } from '../services/app.service';
+import { AppService } from '../app.service';
 
 @Controller('user')
 export class MediaController {

@@ -6,7 +6,6 @@ import { UserModule } from './user/user.module';
 @Module({})
 export class DbMongooseModule {
   static forRoot(mongoUri: string): DynamicModule {
-    console.log(mongoUri)
     return {
       module: DbMongooseModule,
       imports: [

@@ -24,6 +24,15 @@
       "compilerOptions": {
         "tsConfigPath": "libs/db-mongoose/tsconfig.lib.json"
       }
+    },
+    "authenticate": {
+      "type": "library",
+      "root": "libs/authenticate",
+      "entryFile": "index",
+      "sourceRoot": "libs/authenticate/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/authenticate/tsconfig.lib.json"
+      }
     }
   }
 }
