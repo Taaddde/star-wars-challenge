@@ -1,11 +1,18 @@
 # Cambios Recientes
 
+## [2.1.0] - 21/10/2023
+
+### Cambiado
+
+- ✨ Añadidos los endpoints "login", "getOne" y "getAll" para los usuarios
+- ✨ Añadidos los DTO's para el login y el retorno de usuarios
+
 ## [2.0.0] - 21/10/2023
 
 ### Cambiado
 
-- ✨ La responsabilidad de autenticar un usuario, generar el JWT y decodearlo pasa a la librería de authenticate
-- ✨ Las funcionalidades de bcrypt y JWT de la librería de mongoose se eliminan
+- 🔄 La responsabilidad de autenticar un usuario, generar el JWT y decodearlo pasa a la librería de authenticate
+- 🔄 Las funcionalidades de bcrypt y JWT de la librería de mongoose se eliminan
 
 ## [1.4.0] - 19/10/2023
 
