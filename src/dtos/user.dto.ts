@@ -18,3 +18,18 @@ export class LoginResponseDto {
         this.token = token;
     }
 }
+
+export class UserResponseDto {
+    _id: string;
+    username: string;
+    email: string;
+    role: string;
+
+    constructor(data) {
+        this._id = data._id;
+        this.username = data.username;
+        this.email = data.email;
+        this.username = data.username;
+        this.role = data.role;
+    }
+}
