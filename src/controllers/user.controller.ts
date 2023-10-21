@@ -1,5 +1,5 @@
 import { Body, Controller, Get, NotFoundException, Param, Post, UseInterceptors, Version } from '@nestjs/common';
-import { CreateUserDto, LoginResponseDto, LoginUserDto, UserResponseDto, UserResponseDtoT } from 'src/dtos/user.dto';
+import { CreateUserDto, LoginResponseDto, LoginUserDto, UserResponseDto } from 'src/dtos/user.dto';
 import { UserService } from '@app/db-mongoose/user/user.service';
 import { ValidationInterceptor } from 'src/interceptors/class-validator.interceptor';
 import { AuthenticateService } from '@app/authenticate';
