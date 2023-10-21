@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DbMongooseModule } from '@app/db-mongoose';
@@ -9,6 +9,8 @@ import { MediaController } from './controllers/media.controller';
 import { UserModule } from '@app/db-mongoose/user/user.module';
 import { MediaModule } from '@app/db-mongoose/media/media.module';
 import { AuthenticateModule } from '@app/authenticate';
+import { JwtValidateMiddleware } from './middlewares/jwt-validate.middleware';
+import { AdminMiddleware } from './middlewares/admin-validate.middleware';
 
 @Module({
   imports: [
@@ -27,4 +29,11 @@ import { AuthenticateModule } from '@app/authenticate';
     AppService
   ],
 })
-export class AppModule {}
+
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(JwtValidateMiddleware).forRoutes('/media', '/media/*');
+
+    consumer.apply(AdminMiddleware).forRoutes('/media/*');
+  }
+}

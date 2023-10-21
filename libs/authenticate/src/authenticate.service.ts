@@ -43,6 +43,6 @@ export class AuthenticateService {
             role: user.role,
         };
 
-        return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '3h' });
+        return jwt.sign(payload, this.options.jtwSecret, { expiresIn: '3h' });
     }
 }
