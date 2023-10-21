@@ -15,11 +15,15 @@ export class UserService {
   }
 
   async findOneById(userId: string): Promise<User | null> {
-    return this.userModel.findById(userId).exec();
+    try {
+      return await this.userModel.findById(userId).exec();
+    } catch (error) {
+      return null;
+    }
   }
 
-  async findOneByEmail(email: string): Promise<User | null> {
-    return this.userModel.findOne({ email }).exec();
+  async findOneByUsername(username: string): Promise<User | null> {
+    return this.userModel.findOne({ username }).exec();
   }
 
   async update(userId: string, updateUserDto: Partial<User>): Promise<User | null> {

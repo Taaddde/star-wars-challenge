@@ -8,12 +8,12 @@ import { User } from './authenticate.interface';
 export class AuthenticateService {
     constructor(private readonly options: AuthenticateOption) { }
 
-    async authenticate(user: User, email: string, password: string): Promise<string> {
+    async authenticate(user: User, username: string, password: string): Promise<string> {
         if (!user) {
             throw new NotFoundException('User not found');
         }
 
-        if (user.email != email) {
+        if (user.username != username) {
             throw new UnauthorizedException('Invalid credentials');
         }
 
@@ -38,7 +38,6 @@ export class AuthenticateService {
 
     private generateJwtToken(user: User): string {
         const payload = {
-            sub: user._id,
             username: user.username,
             email: user.email,
             role: user.role,
