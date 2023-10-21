@@ -1,3 +1,6 @@
+import { config } from 'dotenv';
+config();
+
 export const AppConfig = {
     port: process.env.PORT || 3000,
     database: {
@@ -7,7 +10,7 @@ export const AppConfig = {
         baseUrl: process.env.SWAPI_BASE_URL || 'https://swapi.dev/api/',
     },
     jwt: {
-        secret: process.env.JWT_SECRET
+        secret: process.env.JWT_SECRET || 'Im-Batman'
     }
 };
   
