@@ -12,8 +12,12 @@ export class Media {
     @Prop({ required: true })
     description: string;
 
-    @Prop({ required: true })
-    releaseDate: string;
+    @Prop({ required: true, set: function (dateString: string) {
+        const [day, month, year] = dateString.split('/');
+        const parsedDate = new Date(`${year}-${month}-${day}`);
+        return parsedDate;
+    } })
+    releaseDate: Date;
 
     @Prop({ required: true })
     director: string;
@@ -22,7 +26,7 @@ export class Media {
     producer: string;
 
     @Prop({ required: true })
-    characters: string;
+    characters: Array<string>;
 
     @Prop({default: now()})
     createdAt: Date;
