@@ -1,5 +1,12 @@
 # Cambios Recientes
 
+## [2.4.0] - 22/10/2023
+
+### Agregado
+
+- ✨ Conexión con API de Swapi
+- ✨ Proceso para popular la base de datos con peliculas de Star Wars
+
 ## [2.3.0] - 21/10/2023
 
 ### Agregado
