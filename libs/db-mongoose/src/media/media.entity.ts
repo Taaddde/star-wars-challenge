@@ -13,9 +13,13 @@ export class Media {
     description: string;
 
     @Prop({ required: true, set: function (dateString: string) {
-        const [day, month, year] = dateString.split('/');
-        const parsedDate = new Date(`${year}-${month}-${day}`);
-        return parsedDate;
+        if (!isNaN(Date.parse(dateString))) {
+            return new Date(dateString)
+        } else {
+            const [day, month, year] = dateString.split('/');
+            const parsedDate = new Date(`${year}-${month}-${day}`);
+            return parsedDate;    
+        }
     } })
     releaseDate: Date;
 

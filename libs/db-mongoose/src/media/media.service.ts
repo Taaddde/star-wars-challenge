@@ -13,6 +13,11 @@ export class MediaService {
     return createdMedia.save();
   }
 
+  async createAll(medias): Promise<string> {
+    await this.mediaModel.create(medias);
+    return 'Films successfully created';
+  }
+
   async findAll(): Promise<Media[]> {
     return this.mediaModel.find().exec();
   }

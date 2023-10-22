@@ -6,6 +6,7 @@ export class RegularMiddleware implements NestMiddleware {
     use(req: Request, res: Response, next: NextFunction) {
         const user = req['user'];
 
+        console.log(user)
         if (user) {
             if (user.role === 'regular') {
                 next();
