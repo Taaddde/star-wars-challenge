@@ -1,5 +1,11 @@
 # Cambios Recientes
 
+## [2.3.0] - 21/10/2023
+
+### Agregado
+
+- ✨ CRUD para peliculas y series
+
 ## [2.2.0] - 21/10/2023
 
 ### Agregado
