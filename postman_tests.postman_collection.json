@@ -1,0 +1,379 @@
+{
+	"info": {
+		"_postman_id": "5036f597-6867-4115-81f4-a8523baac296",
+		"name": "Films Conexa Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5438463"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create admin user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"batman\",\n    \"password\": \"imbatman\",\n    \"email\": \"bruce_wayne@hotmail.com\",\n    \"role\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create regular user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"superman\",\n    \"password\": \"imsuperman\",\n    \"email\": \"klarc_kent@hotmail.com\",\n    \"role\": \"regular\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"batman\",\n    \"password\": \"imbatman\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List of users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail of user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRhZGUyIiwiZW1haWwiOiJ0YWRlQGhvdG1haWwuY29tIiwicm9sZSI6InJlZ3VsYXIiLCJpYXQiOjE2OTgwMjgxMjMsImV4cCI6MTY5ODAzODkyM30.VQe0UmcE-ToRmtuq2aMrTPn0dcShmGk6e-LfV3pJTB8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/user/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6535dd8d04fd55df932845f7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login regular",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"superman\",\n    \"password\": \"imsuperman\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Media",
+			"item": [
+				{
+					"name": "Create media",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhdG1hbiIsImVtYWlsIjoiYnJ1Y2Vfd2F5bmVAaG90bWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTgwMjkxMjYsImV4cCI6MTY5ODAzOTkyNn0.Wiwdg0ihsuS7TGCBcXGBeuh3QB937K3prEF1Jxi0EhU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"characters\": [\n        \"Batman\",\n        \"Guason\"\n    ],\n    \"producer\": \"Matt Reeves Dylan Clark\",\n    \"director\": \"Matt Reeves\",\n    \"releaseDate\": \"2023/03/28\",\n    \"description\": \"Es una historia muy conmovedora\",\n    \"title\": \"Batman\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/media",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"media"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List of media",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN1cGVybWFuIiwiZW1haWwiOiJrbGFyY19rZW50QGhvdG1haWwuY29tIiwicm9sZSI6InJlZ3VsYXIiLCJpYXQiOjE2OTgwMjkxNjEsImV4cCI6MTY5ODAzOTk2MX0.eV1lEfw-UXeZkHWfZ3R3tpaH_8hKUDw3CfmKqI4YC8I",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/media",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"media"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Media detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN1cGVybWFuIiwiZW1haWwiOiJrbGFyY19rZW50QGhvdG1haWwuY29tIiwicm9sZSI6InJlZ3VsYXIiLCJpYXQiOjE2OTgwMjkxNjEsImV4cCI6MTY5ODAzOTk2MX0.eV1lEfw-UXeZkHWfZ3R3tpaH_8hKUDw3CfmKqI4YC8I",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/media/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"media",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6535de4f04fd55df93284602"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update media",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhdG1hbiIsImVtYWlsIjoiYnJ1Y2Vfd2F5bmVAaG90bWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTgwMjkyMjMsImV4cCI6MTY5ODA0MDAyM30.9ImNTjkwdgl7XkI2nYI1fddgqBn3C3waskWvDYJeNZU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"characters\": [\n        \"Batman\",\n        \"Guason\"\n    ],\n    \"producer\": \"Matt Reeves Dylan Clark\",\n    \"director\": \"Matt Reeves\",\n    \"releaseDate\": \"2023/03/28\",\n    \"description\": \"Es una historia muy conmovedora\",\n    \"title\": \"Batman\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/media/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"media",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6535de4f04fd55df93284602"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove media",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhdG1hbiIsImVtYWlsIjoiYnJ1Y2Vfd2F5bmVAaG90bWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTgwMjkyMjMsImV4cCI6MTY5ODA0MDAyM30.9ImNTjkwdgl7XkI2nYI1fddgqBn3C3waskWvDYJeNZU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/media/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"media",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6535de4f04fd55df93284602"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Swapi",
+			"item": [
+				{
+					"name": "Populate database of swapi films",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRhZGUiLCJlbWFpbCI6InRhZGVAaG90bWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTc5NDA4NjUsImV4cCI6MTY5Nzk1MTY2NX0.K-olNOQjA9iWIqK4k_TwqLDQACrnJ9qDtyFaD6U4ftw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/swapi",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"swapi"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
