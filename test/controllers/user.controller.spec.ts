@@ -1,21 +1,16 @@
-import { INestApplication } from "@nestjs/common";
-import { Test, TestingModule } from "@nestjs/testing";
-import { AppModule } from "../../src/app.module";
+import { INestApplication } from '@nestjs/common';
+import { Test, TestingModule } from '@nestjs/testing';
+import { AppModule } from '../../src/app.module';
 import * as request from 'supertest';
 
-import { UserServiceMock } from "../mocks/user-service.mock";
-import { AuthenticateServiceMock } from "../mocks/authenticate-service.mock";
+import { UserServiceMock } from '../mocks/user-service.mock';
+import { AuthenticateServiceMock } from '../mocks/authenticate-service.mock';
 
-import { UserService } from "../../libs/db-mongoose/src/user/user.service";
-import { AuthenticateService } from "../../libs/authenticate/src";
+import { UserService } from '../../libs/db-mongoose/src/user/user.service';
+import { AuthenticateService } from '../../libs/authenticate/src';
 
 describe('UserController (e2e)', () => {
   let app: INestApplication;
-
-  const userServiceMock = {
-    provide: UserService,
-    useClass: UserServiceMock,
-  };
 
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
@@ -27,7 +22,6 @@ describe('UserController (e2e)', () => {
       .useClass(AuthenticateServiceMock)
       .compile();
 
-      
     app = moduleFixture.createNestApplication();
     await app.init();
   });
@@ -40,20 +34,19 @@ describe('UserController (e2e)', () => {
     return request(app.getHttpServer())
       .post('/user')
       .send({
-        "username": "tade",
-        "password": "tade",
-        "email": "tade@hotmail.com"
+        username: 'tade',
+        password: 'tade',
+        email: 'tade@hotmail.com',
       })
-      .expect(201)
+      .expect(201);
   });
-
 
   it('/user/login (POST) - Login User', () => {
     return request(app.getHttpServer())
       .post('/user/login')
       .send({
-        "username": "valid-user",
-        "password": "valid-password"
+        username: 'valid-user',
+        password: 'valid-password',
       })
       .expect(200)
       .expect((response) => {

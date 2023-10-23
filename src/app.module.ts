@@ -1,4 +1,9 @@
-import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
+import {
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  RequestMethod,
+} from '@nestjs/common';
 import { HealthController } from './controllers/health.controller';
 import { DbMongooseModule } from '@app/db-mongoose';
 import { AppConfig } from './app.config';
@@ -15,35 +20,38 @@ import { SwapiController } from './controllers/swapi.controller';
 
 @Module({
   imports: [
-    AuthenticateModule.forRoot({jtwSecret: AppConfig.jwt.secret}),
+    AuthenticateModule.forRoot({ jtwSecret: AppConfig.jwt.secret }),
     DbMongooseModule.forRoot(AppConfig.database.url),
     UserModule,
     MediaModule,
-    SwapiModule.forRoot({baseURL: AppConfig.swapi.baseUrl})
+    SwapiModule.forRoot({ baseURL: AppConfig.swapi.baseUrl }),
   ],
   controllers: [
-    HealthController, 
+    HealthController,
     UserController,
     MediaController,
-    SwapiController
+    SwapiController,
   ],
   providers: [],
 })
-
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(JwtValidateMiddleware).forRoutes('/media', '/media/*');
 
-    consumer.apply(RegularMiddleware).forRoutes(
-      {path: '/media', method: RequestMethod.GET},
-      {path: '/media/*', method: RequestMethod.GET}
-    );
+    consumer
+      .apply(RegularMiddleware)
+      .forRoutes(
+        { path: '/media', method: RequestMethod.GET },
+        { path: '/media/*', method: RequestMethod.GET },
+      );
 
-    consumer.apply(AdminMiddleware).forRoutes(
-      {path: '/media/*', method: RequestMethod.PATCH},
-      {path: '/media/*', method: RequestMethod.DELETE},
-      {path: '/media', method: RequestMethod.POST},
-      {path: '/media/*', method: RequestMethod.POST}
-    );
+    consumer
+      .apply(AdminMiddleware)
+      .forRoutes(
+        { path: '/media/*', method: RequestMethod.PATCH },
+        { path: '/media/*', method: RequestMethod.DELETE },
+        { path: '/media', method: RequestMethod.POST },
+        { path: '/media/*', method: RequestMethod.POST },
+      );
   }
 }

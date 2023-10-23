@@ -1,22 +1,41 @@
-import { Body, Controller, Get, HttpCode, NotFoundException, Param, Post, Query, UseInterceptors, Version } from '@nestjs/common';
-import { CreateUserDto, LoginResponseDto, LoginUserDto, UserGenericResponseDto, UserListDto, UserResponseDto } from '../dtos/user.dto';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  NotFoundException,
+  Param,
+  Post,
+  Query,
+  UseInterceptors,
+  Version,
+} from '@nestjs/common';
+import {
+  CreateUserDto,
+  LoginResponseDto,
+  LoginUserDto,
+  UserGenericResponseDto,
+  UserListDto,
+  UserResponseDto,
+} from '../dtos/user.dto';
 import { UserService } from '@app/db-mongoose/user/user.service';
 import { ValidationInterceptor } from '../interceptors/class-validator.interceptor';
 import { AuthenticateService } from '@app/authenticate';
-import { User } from '@app/db-mongoose/user/user.entity';
 
 @Controller('user')
 export class UserController {
   constructor(
-    private readonly userService: UserService, 
-    private readonly authenticateService: AuthenticateService
+    private readonly userService: UserService,
+    private readonly authenticateService: AuthenticateService,
   ) {}
 
   @Post()
   @Version(['1'])
   @HttpCode(201)
   @UseInterceptors(ValidationInterceptor)
-  createUser(@Body() createUserDto: CreateUserDto): Promise<UserGenericResponseDto> {
+  createUser(
+    @Body() createUserDto: CreateUserDto,
+  ): Promise<UserGenericResponseDto> {
     return this.userService.create(createUserDto);
   }
 
@@ -25,8 +44,14 @@ export class UserController {
   @HttpCode(200)
   @UseInterceptors(ValidationInterceptor)
   async login(@Body() loginUserDto: LoginUserDto): Promise<LoginResponseDto> {
-    const user = await this.userService.findOneByUsername(loginUserDto.username);
-    const token = await this.authenticateService.authenticate(user, loginUserDto.username, loginUserDto.password);
+    const user = await this.userService.findOneByUsername(
+      loginUserDto.username,
+    );
+    const token = await this.authenticateService.authenticate(
+      user,
+      loginUserDto.username,
+      loginUserDto.password,
+    );
     return new LoginResponseDto(user, token);
   }
 
@@ -35,9 +60,9 @@ export class UserController {
   @HttpCode(200)
   async getUserList(
     @Query('page') page: string,
-    @Query('limit') limit: string
+    @Query('limit') limit: string,
   ): Promise<UserListDto> {
-    return await this.userService.findAll({page, limit});
+    return await this.userService.findAll({ page, limit });
   }
 
   @Get(':id')

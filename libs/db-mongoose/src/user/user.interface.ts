@@ -1,12 +1,12 @@
-import { User } from "./user.entity"
+import { User } from './user.entity';
 
 export interface IListOptions {
-    page?: string,
-    limit?: string
+  page?: string;
+  limit?: string;
 }
 
 export interface UserList {
-    data: Array<User>,
-    page: number,
-    limit: number
+  data: Array<User>;
+  page: number;
+  limit: number;
 }

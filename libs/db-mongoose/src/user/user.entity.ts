@@ -29,13 +29,12 @@ export class User {
   @Prop({ default: null })
   profileImage: string;
 
-  @Prop({default: now()})
+  @Prop({ default: now() })
   createdAt?: Date;
 
-  @Prop({default: now()})
+  @Prop({ default: now() })
   updatedAt?: Date;
 }
-
 
 export type UserDocument = User & Document;
 

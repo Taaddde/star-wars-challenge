@@ -1,6 +1,6 @@
 export class AuthenticateOption {
-    jtwSecret: string;
-    constructor(options: AuthenticateOption) {
-        Object.assign(this, options);
-    }
+  jtwSecret: string;
+  constructor(options: AuthenticateOption) {
+    Object.assign(this, options);
+  }
 }

@@ -8,11 +8,7 @@ export class DbMongooseModule {
   static forRoot(mongoUri: string): DynamicModule {
     return {
       module: DbMongooseModule,
-      imports: [
-        MongooseModule.forRoot(mongoUri),
-        MediaModule,
-        UserModule,
-      ],
+      imports: [MongooseModule.forRoot(mongoUri), MediaModule, UserModule],
     };
   }
 }

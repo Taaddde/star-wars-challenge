@@ -4,9 +4,8 @@ import { SwapiService } from './swapi.service';
 import { SwapiOption } from './swapi.options';
 
 @Module({
-  imports: [HttpModule]
+  imports: [HttpModule],
 })
-
 export class SwapiModule {
   static forRoot(options: SwapiOption): DynamicModule {
     return {
