@@ -4,7 +4,7 @@
 
 # Film Challenge
 
-Is a powerful and scalable RESTful API built using Node.js. It provides endpoints for authentication using JWT and fetching detailed information about films or series.
+Is a powerful and scalable RESTful API built using Nest js. It provides endpoints for authentication using JWT and fetching detailed information about films or series.
 ## Tech Stack
 **Server:** Node (>=18.16.0), Express, Mongoose
 
