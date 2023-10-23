@@ -1,5 +1,12 @@
 # Cambios Recientes
 
+## [3.2.2] - 23/10/2023
+
+### Cambiado
+
+- 🐛 Se corrigieron y añadieron algunos tests para users y swapi
+- 🐛 Se corrigieron los mocks para las listas de users y media
+
 ## [3.2.1] - 23/10/2023
 
 ### Cambiado
