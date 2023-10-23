@@ -1,18 +1,9 @@
 import { User, UserRole } from "@app/db-mongoose/user/user.entity";
+import { UserGenericResponseDto } from "src/dtos/user.dto";
 
 export class UserServiceMock {
-    async create(user: User): Promise<User> {
-        return {
-            "username": "superman",
-            "email": "klark_kent@hotmail.com",
-            "password": "$2b$10$2lrOj7o4VoYEBkzGGLs9D.5sJqITyBd7tEnNYqQUYErFP7PLJHebq",
-            "isActive": true,
-            "lastLogin": null,
-            "role": UserRole.Admin,
-            "profileImage": null,
-            "createdAt": new Date("2023-10-22T05:34:43.800Z"),
-            "updatedAt": new Date("2023-10-22T05:34:43.800Z"),
-        }
+    async create(user: User): Promise<UserGenericResponseDto> {
+        return {message: 'User successfully created'}
     }
 
     async findAll(): Promise<User[]> {
@@ -70,11 +61,11 @@ export class UserServiceMock {
         }
     }
 
-    async update(userId: string, updateUserDto: Partial<User>): Promise<string> {
-        return 'User successfully updated';
+    async update(userId: string, updateUserDto: Partial<User>): Promise<UserGenericResponseDto> {
+        return {message: 'User successfully updated'};
     }
 
-    async remove(userId: string): Promise<string> {
-        return 'User successfully removed'
+    async remove(userId: string): Promise<UserGenericResponseDto> {
+        return {message: 'User successfully removed'}
     }
 }

@@ -1,5 +1,5 @@
 import { Body, Controller, Get, HttpCode, NotFoundException, Param, Post, UseInterceptors, Version } from '@nestjs/common';
-import { CreateUserDto, LoginResponseDto, LoginUserDto, UserResponseDto } from '../dtos/user.dto';
+import { CreateUserDto, LoginResponseDto, LoginUserDto, UserGenericResponseDto, UserResponseDto } from '../dtos/user.dto';
 import { UserService } from '@app/db-mongoose/user/user.service';
 import { ValidationInterceptor } from '../interceptors/class-validator.interceptor';
 import { AuthenticateService } from '@app/authenticate';
@@ -16,7 +16,7 @@ export class UserController {
   @Version(['1'])
   @HttpCode(201)
   @UseInterceptors(ValidationInterceptor)
-  createUser(@Body() createUserDto: CreateUserDto): Promise<User> {
+  createUser(@Body() createUserDto: CreateUserDto): Promise<UserGenericResponseDto> {
     return this.userService.create(createUserDto);
   }
 

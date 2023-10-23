@@ -33,3 +33,7 @@ export class UserResponseDto {
         this.role = data.role;
     }
 }
+
+export class UserGenericResponseDto {
+    message: string
+}

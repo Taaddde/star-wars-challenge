@@ -8,9 +8,10 @@ import { MediaGenericResponseDto } from 'src/dtos/media.dto';
 export class MediaService {
   constructor(@InjectModel(Media.name) private readonly mediaModel: Model<MediaDocument>) {}
 
-  async create(createMediaDto: Partial<Media>): Promise<Media> {
+  async create(createMediaDto: Partial<Media>): Promise<MediaGenericResponseDto> {
     const createdMedia = new this.mediaModel(createMediaDto);
-    return createdMedia.save();
+    await createdMedia.save();
+    return {message: 'Media successfully created'}
   }
 
   async createAll(medias): Promise<string> {

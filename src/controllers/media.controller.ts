@@ -12,7 +12,7 @@ export class MediaController {
   @Version(['1'])
   @HttpCode(201)
   @UseInterceptors(ValidationInterceptor)
-  createMedia(@Body() createMediaDto: CreateMediaDto): Promise<Media> {
+  createMedia(@Body() createMediaDto: CreateMediaDto): Promise<MediaGenericResponseDto> {
     return this.mediaService.create(createMediaDto);
   }
 

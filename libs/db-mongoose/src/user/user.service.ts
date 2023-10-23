@@ -2,12 +2,14 @@ import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/co
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { User, UserDocument } from './user.entity';
+import { UserGenericResponseDto } from 'src/dtos/user.dto';
 @Injectable()
 export class UserService {
   constructor(@InjectModel(User.name) private readonly userModel: Model<UserDocument>) {}
-  async create(user: User): Promise<User> {
+  async create(user: User): Promise<UserGenericResponseDto> {
     const createdUser = new this.userModel(user);
-    return createdUser.save();
+    await createdUser.save();
+    return {message: 'User successfully created'};
   }
 
   async findAll(): Promise<User[]> {
@@ -26,7 +28,7 @@ export class UserService {
     return this.userModel.findOne({ username }).exec();
   }
 
-  async update(userId: string, updateUserDto: Partial<User>): Promise<string> {
+  async update(userId: string, updateUserDto: Partial<User>): Promise<UserGenericResponseDto> {
     const existingUser = await this.findOneById(userId);
 
     if (!existingUser) {
@@ -39,11 +41,11 @@ export class UserService {
 
     await this.userModel.findByIdAndUpdate(userId, existingUser);
 
-    return 'User successfully updated';
+    return {message: 'User successfully updated'};
   }
 
-  async remove(userId: string): Promise<string> {
+  async remove(userId: string): Promise<UserGenericResponseDto> {
     const deletedUser = await this.userModel.findByIdAndDelete(userId).exec();
-    return 'User successfully removed'
+    return {message: 'User successfully removed'}
   }
 }
