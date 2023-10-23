@@ -26,7 +26,7 @@ export class UserService {
     return this.userModel.findOne({ username }).exec();
   }
 
-  async update(userId: string, updateUserDto: Partial<User>): Promise<User | null> {
+  async update(userId: string, updateUserDto: Partial<User>): Promise<string> {
     const existingUser = await this.findOneById(userId);
 
     if (!existingUser) {
@@ -37,11 +37,13 @@ export class UserService {
 
     existingUser.updatedAt = new Date();
 
-    return this.userModel.findByIdAndUpdate(userId, existingUser);
+    await this.userModel.findByIdAndUpdate(userId, existingUser);
+
+    return 'User successfully updated';
   }
 
-  async remove(userId: string): Promise<User | null> {
+  async remove(userId: string): Promise<string> {
     const deletedUser = await this.userModel.findByIdAndDelete(userId).exec();
-    return deletedUser;
+    return 'User successfully removed'
   }
 }

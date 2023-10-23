@@ -1,7 +1,7 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Query, UseGuards, UseInterceptors, Version } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Patch, Post, Query, UseInterceptors, Version } from '@nestjs/common';
 import { MediaService } from '@app/db-mongoose/media/media.service';
-import { CreateMediaDto, MediaDetailResponseDto, MediaGenericResponseDto, MediaResponseDto } from 'src/dtos/media.dto';
-import { ValidationInterceptor } from 'src/interceptors/class-validator.interceptor';
+import { CreateMediaDto, MediaDetailResponseDto, MediaGenericResponseDto, MediaResponseDto } from '../dtos/media.dto';
+import { ValidationInterceptor } from '../interceptors/class-validator.interceptor';
 import { Media } from '@app/db-mongoose/media/media.entity';
 
 @Controller('media')
@@ -10,6 +10,7 @@ export class MediaController {
 
   @Post()
   @Version(['1'])
+  @HttpCode(201)
   @UseInterceptors(ValidationInterceptor)
   createMedia(@Body() createMediaDto: CreateMediaDto): Promise<Media> {
     return this.mediaService.create(createMediaDto);
@@ -17,6 +18,7 @@ export class MediaController {
 
   @Patch(':id')
   @Version(['1'])
+  @HttpCode(200)
   async updateMedia(
     @Param('id') id: string,
     @Body() updateMediaDto: Partial<Media>
@@ -26,6 +28,7 @@ export class MediaController {
 
   @Delete(':id')
   @Version(['1'])
+  @HttpCode(200)
   async deleteMedia(
     @Param('id') id: string,
   ): Promise<MediaGenericResponseDto> {
@@ -33,6 +36,7 @@ export class MediaController {
   }
 
   @Get()
+  @HttpCode(200)
   async getMediaList(
     @Query('releaseFrom') from: Date,
     @Query('releaseTo') to: Date,
@@ -42,6 +46,7 @@ export class MediaController {
   }
 
   @Get(':id')
+  @HttpCode(200)
   async getMovieDetails(
     @Param('id') id: string,
   ): Promise<MediaDetailResponseDto> {

@@ -1,6 +1,6 @@
 import { Controller, Post, Version } from '@nestjs/common';
 import { SwapiService } from '@app/swapi';
-import { SwapiFilmFormattedDto } from 'src/dtos/swapi.dto';
+import { SwapiFilmFormattedDto } from '../dtos/swapi.dto';
 import { MediaService } from '@app/db-mongoose/media/media.service';
 
 @Controller('swapi')
