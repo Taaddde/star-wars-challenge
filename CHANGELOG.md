@@ -1,5 +1,11 @@
 # Cambios Recientes
 
+## [2.4.1] - 22/10/2023
+
+### Cambiado
+
+- 🐛 Se declara el código de respuesta de los endpoints, ya que todos contestaban 201
+
 ## [2.4.0] - 22/10/2023
 
 ### Agregado
