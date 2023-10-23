@@ -1,5 +1,12 @@
 # Cambios Recientes
 
+## [2.6.0] - 22/10/2023
+
+### Agregado
+
+- ✨ Tests para los endpoints de media
+- ✨ Tests para los endpoints de swapi
+
 ## [2.5.0] - 22/10/2023
 
 ### Agregado
