@@ -1,73 +1,301 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+![Logo](https://i.ibb.co/N3svbrW/Futuristic-Modern-Black-and-White-Logo-1000-x-500-px.png)
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+# Film Challenge
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Is a powerful and scalable RESTful API built using Node.js. It provides endpoints for authentication using JWT and fetching detailed information about films or series.
+## Tech Stack
+**Server:** Node (>=18.16.0), Express, Mongoose
 
-## Installation
+
+## Run Locally
+
+Clone the project
 
 ```bash
-$ npm install
+git clone https://github.com/Taaddde/star-wars-challenge.git
 ```
 
-## Running the app
+Go to the project directory
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+cd star-wars-challenge
 ```
 
-## Test
+Install dependencies
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm install
 ```
 
-## Support
+(Optional) You can start a local database quickly with docker, otherwise clarify the database to be used in environment variables
+```bash
+npm run database
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Start the server
+```bash
+npm run start:dev
+```
 
-## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Environment Variables
 
-## License
+To run this project, you will need to add the following environment variables to your .env file, there is an .env.example file to use as a guideline.
 
-Nest is [MIT licensed](LICENSE).
+`PORT`
+`DATABASE_URL`
+`SWAPI_BASE_URL`
+`JWT_SECRET`
+
+## API Reference
+
+### Swapi
+
+#### Populate the database of swapi info
+```http
+  POST /swapi
+```
+
+##### Response
+```json
+  Films successfully created
+```
+
+### User
+
+#### Create user
+```http
+  POST /user
+```
+
+##### Body
+```json
+  {
+      "username": "im_batman",
+      "password": "im batman",
+      "email": "bruce_wayne@hotmail.com",
+      "role": "regular"
+  }
+```
+
+##### Response
+```json
+  {
+      "message": "User successfully created"
+  }
+```
+
+#### Login (get Token)
+
+```http
+  POST /user/login
+```
+##### Body
+```json
+  {
+      "username": "im_batman",
+      "password": "im batman",
+  }
+```
+
+##### Response
+```json
+  {
+      "username": "im_batman",
+      "email": "bruce_wayne@hotmail.com",
+      "role": "regular",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRhZGUiLCJlbWFpbCI6InRhZGVAaG90bWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTgwMjE3MzEsImV4cCI6MTY5ODAzMjUzMX0.yhhY2KaU3e2r8O0elkPYFMhjUhV6MEeZR1z-pWTU1KQ"
+  }
+```
+
+#### Get list of users
+```http
+  GET /user
+```
+
+##### Response
+```json
+  [
+    {
+        "username": "im_batman",
+        "email": "bruce_wayne@hotmail.com",
+        "password": "im batman",
+        "isActive": true,
+        "lastLogin": null,
+        "role": "regular",
+        "profileImage": null,
+        "_id": "6531a506a7385fb7f228d56e",
+    },
+    {
+        "username": "im_superman",
+        "email": "klarc_kent@hotmail.com",
+        "password": "im superman",
+        "isActive": true,
+        "lastLogin": null,
+        "role": "regular",
+        "profileImage": null,
+        "_id": "6531a506a7385fb7f228d56e",
+    }
+  ]
+```
+
+#### Get user detail
+```http
+  GET /user/:id
+```
+
+##### Response
+```json
+  {
+      "username": "im_batman",
+      "email": "bruce_wayne@hotmail.com",
+      "password": "im batman",
+      "isActive": true,
+      "lastLogin": null,
+      "role": "regular",
+      "profileImage": null,
+      "_id": "6531a506a7385fb7f228d56e",
+  }
+```
+
+### Films
+#### Create a media document (only for admin users)
+```http
+  POST /media
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `Authentication` | `string` | **Required**. Your JWT token |
+
+##### Body
+```json
+  {
+      "characters": [
+          "Batman",
+          "Guason"
+      ],
+      "producer": "Matt Reeves Dylan Clark",
+      "director": "Matt Reeves",
+      "releaseDate": "2023/03/28",
+      "description": "Es una historia muy conmovedora",
+      "title": "Batman"
+  }
+```
+
+##### Response
+```json
+  {
+    "message": "Media successfully created"
+  }
+```
+
+#### Update a media document (only for admin users)
+```http
+  PATCH /media/:id
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `Authentication` | `string` | **Required**. Your JWT token |
+| `id` | `string` | ID of the media |
+
+##### Body
+```json
+  {
+      "characters": [
+          "Batman",
+          "Guason"
+      ],
+      "producer": "Matt Reeves Dylan Clark",
+      "director": "Matt Reeves",
+      "releaseDate": "2023/03/28",
+      "description": "Es una historia muy conmovedora",
+      "title": "Batman"
+  }
+```
+
+##### Response
+```json
+  {
+    "message": "Media successfully updated"
+  }
+```
+
+#### Get list of films (only for regular users)
+```http
+  GET /media
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `Authentication` | `string` | **Required**. Your JWT token |
+
+##### Response
+```json
+  [
+    {
+        "_id": "6535c16f4589307d4e874656",
+        "title": "Batman",
+        "description": "Es una historia muy conmovedora",
+        "releaseDate": "2023-03-28T03:00:00.000Z"
+    },
+    {
+        "_id": "6535d96485f9469d27c2a33a",
+        "title": "Batman 2",
+        "description": "Es una historia muy conmovedora",
+        "releaseDate": "2023-03-28T03:00:00.000Z"
+    }
+  ]
+```
+
+#### Get film detail (only for regular users)
+```http
+  GET /media/:id
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `Authentication` | `string` | **Required**. Your JWT token |
+| `id` | `string` | ID of the media |
+
+##### Response
+```json
+  {
+      "_id": "6535c16f4589307d4e874656",
+      "title": "Batman",
+      "description": "Es una historia muy conmovedora",
+      "releaseDate": "2023-03-28T03:00:00.000Z",
+      "director": "Tadeo",
+      "producer": "Tadeo",
+      "characters": [
+          "Batman",
+          "Guason"
+      ]
+  }
+```
+
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+npm run test
+```
+
+
+## Deployment
+
+To build this project run
+
+```bash
+npm run build
+```
+
+Then, start the productive server with
+
+```bash
+npm start
+```
+## Authors
+
+- [@Taaddde](https://github.com/Taaddde)
+
