@@ -1,19 +1,36 @@
-import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { User, UserDocument } from './user.entity';
 import { UserGenericResponseDto } from 'src/dtos/user.dto';
+import { IListOptions, UserList } from './user.interface';
 @Injectable()
 export class UserService {
   constructor(@InjectModel(User.name) private readonly userModel: Model<UserDocument>) {}
   async create(user: User): Promise<UserGenericResponseDto> {
+    const existingUser = await this.findOneByUsername(user.username);
+
+    if (existingUser) {
+      throw new BadRequestException(`The username ${user.username} already exists`);
+    }
+
     const createdUser = new this.userModel(user);
     await createdUser.save();
     return {message: 'User successfully created'};
   }
 
-  async findAll(): Promise<User[]> {
-    return this.userModel.find().exec();
+  async findAll(options: IListOptions): Promise<UserList> {
+    const page = parseInt(options.page, 10) || 0;
+    const limit = parseInt(options.limit, 10) || 10;
+    const skip = page * limit;
+
+    const userList = await this.userModel.find().skip(skip).limit(limit).exec();
+
+    return {
+      data: userList,
+      page,
+      limit
+    }
   }
 
   async findOneById(userId: string): Promise<User | null> {

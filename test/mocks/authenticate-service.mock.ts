@@ -1,8 +1,9 @@
-import { User, UserRole } from "@app/db-mongoose/user/user.entity";
+import { IUser } from "@app/authenticate/authenticate.interface";
+import { UserRole } from "@app/db-mongoose/user/user.entity";
 
 
 export class AuthenticateServiceMock {
-    async authenticate(user: User, username: string, password: string): Promise<string> {
+    async authenticate(user: IUser, username: string, password: string): Promise<string> {
         if (username === "valid-user") {
             return "valid-token";
         } else {

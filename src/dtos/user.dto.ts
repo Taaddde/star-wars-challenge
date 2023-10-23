@@ -4,6 +4,11 @@ import { User } from '@app/db-mongoose/user/user.entity';
 export class CreateUserDto extends OmitType(User, ['createdAt', 'updatedAt'] as const) { }
 export class LoginUserDto extends PickType(User, ['username', 'password'] as const) { }
 
+export class UserListDto {
+    data: Array<User>;
+    page: number;
+    limit: number;
+}
 export class LoginResponseDto {
     username: string;
     email: string;

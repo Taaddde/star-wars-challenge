@@ -2,13 +2,13 @@ import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/co
 import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
 import { AuthenticateOption } from './authenticate.options';
-import { User } from './authenticate.interface';
+import { IUser } from './authenticate.interface';
 
 @Injectable()
 export class AuthenticateService {
     constructor(private readonly options: AuthenticateOption) { }
 
-    async authenticate(user: User, username: string, password: string): Promise<string> {
+    async authenticate(user: IUser, username: string, password: string): Promise<string> {
         if (!user) {
             throw new NotFoundException('User not found');
         }
@@ -28,7 +28,7 @@ export class AuthenticateService {
         return token;
     }
 
-    async decodeJwtToken(token: string): Promise<User> {
+    async decodeJwtToken(token: string): Promise<IUser> {
         try {
             return jwt.verify(token, this.options.jtwSecret);
         } catch (error) {
@@ -36,7 +36,7 @@ export class AuthenticateService {
         }
     }
 
-    private generateJwtToken(user: User): string {
+    private generateJwtToken(user: IUser): string {
         const payload = {
             username: user.username,
             email: user.email,

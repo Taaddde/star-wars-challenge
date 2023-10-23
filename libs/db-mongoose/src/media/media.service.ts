@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
 import { Media, MediaDocument } from './media.entity';
 import { MediaGenericResponseDto } from 'src/dtos/media.dto';
+import { IListOptions, MediaList } from './media.interface';
 
 @Injectable()
 export class MediaService {
@@ -19,8 +20,18 @@ export class MediaService {
     return 'Films successfully created';
   }
 
-  async findAll(): Promise<Media[]> {
-    return this.mediaModel.find().exec();
+  async findAll(options: IListOptions): Promise<MediaList> {
+    const page = parseInt(options.page, 10) || 0;
+    const limit = parseInt(options.limit, 10) || 10;
+    const skip = page * limit;
+
+    const userList = await this.mediaModel.find().skip(skip).limit(limit).exec();
+
+    return {
+      data: userList,
+      page,
+      limit
+    }
   }
 
   async findOneById(id: string): Promise<Media | null> {

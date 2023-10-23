@@ -1,6 +1,5 @@
 import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { DbMongooseModule } from '@app/db-mongoose';
 import { AppConfig } from './app.config';
 import { SwapiModule } from '@app/swapi';
@@ -28,9 +27,7 @@ import { SwapiController } from './controllers/swapi.controller';
     MediaController,
     SwapiController
   ],
-  providers: [
-    AppService
-  ],
+  providers: [],
 })
 
 export class AppModule implements NestModule {

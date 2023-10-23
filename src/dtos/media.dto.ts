@@ -3,6 +3,12 @@ import { Media } from '@app/db-mongoose/media/media.entity';
 
 export class CreateMediaDto extends OmitType(Media, ['_id', 'createdAt', 'updatedAt'] as const) {}
 
+export class MediaListDto {
+    data: Array<Media>;
+    page: number;
+    limit: number;
+}
+
 export class MediaDetailResponseDto {
     _id: string;
     title: string;

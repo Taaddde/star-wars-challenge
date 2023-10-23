@@ -1,5 +1,5 @@
-import { Body, Controller, Get, HttpCode, NotFoundException, Param, Post, UseInterceptors, Version } from '@nestjs/common';
-import { CreateUserDto, LoginResponseDto, LoginUserDto, UserGenericResponseDto, UserResponseDto } from '../dtos/user.dto';
+import { Body, Controller, Get, HttpCode, NotFoundException, Param, Post, Query, UseInterceptors, Version } from '@nestjs/common';
+import { CreateUserDto, LoginResponseDto, LoginUserDto, UserGenericResponseDto, UserListDto, UserResponseDto } from '../dtos/user.dto';
 import { UserService } from '@app/db-mongoose/user/user.service';
 import { ValidationInterceptor } from '../interceptors/class-validator.interceptor';
 import { AuthenticateService } from '@app/authenticate';
@@ -33,9 +33,11 @@ export class UserController {
   @Get()
   @Version(['1'])
   @HttpCode(200)
-  async getUserList(): Promise<UserResponseDto[]> {
-    const users = await this.userService.findAll();
-    return users.map((user) => new UserResponseDto(user));
+  async getUserList(
+    @Query('page') page: string,
+    @Query('limit') limit: string
+  ): Promise<UserListDto> {
+    return await this.userService.findAll({page, limit});
   }
 
   @Get(':id')

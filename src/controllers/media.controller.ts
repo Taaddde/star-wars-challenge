@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, HttpCode, Param, Patch, Post, Query, UseInterceptors, Version } from '@nestjs/common';
 import { MediaService } from '@app/db-mongoose/media/media.service';
-import { CreateMediaDto, MediaDetailResponseDto, MediaGenericResponseDto, MediaResponseDto } from '../dtos/media.dto';
+import { CreateMediaDto, MediaDetailResponseDto, MediaGenericResponseDto, MediaListDto, MediaResponseDto } from '../dtos/media.dto';
 import { ValidationInterceptor } from '../interceptors/class-validator.interceptor';
 import { Media } from '@app/db-mongoose/media/media.entity';
 
@@ -38,11 +38,10 @@ export class MediaController {
   @Get()
   @HttpCode(200)
   async getMediaList(
-    @Query('releaseFrom') from: Date,
-    @Query('releaseTo') to: Date,
-  ): Promise<MediaResponseDto[]> {
-    const mediaList = await this.mediaService.findAll();
-    return mediaList.map((media) => new MediaResponseDto(media));
+    @Query('page') page: string,
+    @Query('limit') limit: string
+  ): Promise<MediaListDto> {
+    return await this.mediaService.findAll({page, limit});
   }
 
   @Get(':id')

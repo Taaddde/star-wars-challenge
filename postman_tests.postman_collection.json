@@ -95,12 +95,41 @@
 					"response": []
 				},
 				{
+					"name": "Login regular",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"superman\",\n    \"password\": \"imsuperman\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "List of users",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/user",
+							"raw": "http://localhost:3000/user?limit=10&page=0",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -108,6 +137,16 @@
 							"port": "3000",
 							"path": [
 								"user"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								}
 							]
 						}
 					},
@@ -140,35 +179,6 @@
 									"key": "id",
 									"value": "6535dd8d04fd55df932845f7"
 								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Login regular",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"username\": \"superman\",\n    \"password\": \"imsuperman\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/user/login",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"user",
-								"login"
 							]
 						}
 					},
@@ -220,12 +230,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN1cGVybWFuIiwiZW1haWwiOiJrbGFyY19rZW50QGhvdG1haWwuY29tIiwicm9sZSI6InJlZ3VsYXIiLCJpYXQiOjE2OTgwMjkxNjEsImV4cCI6MTY5ODAzOTk2MX0.eV1lEfw-UXeZkHWfZ3R3tpaH_8hKUDw3CfmKqI4YC8I",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN1cGVybWFuIiwiZW1haWwiOiJrbGFyY19rZW50QGhvdG1haWwuY29tIiwicm9sZSI6InJlZ3VsYXIiLCJpYXQiOjE2OTgwNjcxMTksImV4cCI6MTY5ODA3NzkxOX0.xcHOhaV-zPLYNqVaIZTGMYxaeTZXzdwSp3HAlwErtI4",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/media",
+							"raw": "http://localhost:3000/media?page=0&limit=10",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -233,6 +243,16 @@
 							"port": "3000",
 							"path": [
 								"media"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
 							]
 						}
 					},
