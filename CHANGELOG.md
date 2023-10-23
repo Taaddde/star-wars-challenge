@@ -1,6 +1,6 @@
 # Cambios Recientes
 
-## [3.1.0] - 21/10/2023
+## [3.1.0] - 23/10/2023
 
 ### Agregado
 
@@ -8,7 +8,7 @@
 - ✨ Query options simples de page y limit para la lista de peliculas y series
 - 🔄 Se actualizó el archivo de postman
 
-## [3.0.0] - 21/10/2023
+## [3.0.0] - 22/10/2023
 
 ### Cambiado
 
