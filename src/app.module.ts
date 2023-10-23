@@ -37,7 +37,7 @@ export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(JwtValidateMiddleware).forRoutes('/media', '/media/*');
 
-    consumer.apply(AdminMiddleware).forRoutes(
+    consumer.apply(RegularMiddleware).forRoutes(
       {path: '/media', method: RequestMethod.GET},
       {path: '/media/*', method: RequestMethod.GET}
     );
