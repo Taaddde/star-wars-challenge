@@ -1,5 +1,12 @@
 # Cambios Recientes
 
+## [2.5.0] - 22/10/2023
+
+### Agregado
+
+- ✨ Tests para los endpoints de usuarios
+- ✨ Mocks para servicios de base de datos y autenticación
+
 ## [2.4.1] - 22/10/2023
 
 ### Cambiado
