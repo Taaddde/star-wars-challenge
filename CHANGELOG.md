@@ -1,5 +1,12 @@
 # Cambios Recientes
 
+## [3.2.3] - 23/10/2023
+
+### Agregado
+
+- ✨ Tests para el servicio de autenticación
+- ✨ Tests para el servicio de swapi
+
 ## [3.2.2] - 23/10/2023
 
 ### Cambiado
