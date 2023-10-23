@@ -1,5 +1,11 @@
 # Cambios Recientes
 
+## [3.0.0] - 21/10/2023
+
+### Cambiado
+
+- 🔄 Ahora las respuestas de creación y actualización de documentos devuelven un texto de confirmación en lugar del documento en sí
+
 ## [2.6.0] - 22/10/2023
 
 ### Agregado
