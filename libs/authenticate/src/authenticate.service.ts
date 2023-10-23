@@ -44,7 +44,7 @@ export class AuthenticateService {
     }
   }
 
-  private generateJwtToken(user: IUser): string {
+  generateJwtToken(user: IUser): string {
     const payload = {
       username: user.username,
       email: user.email,
