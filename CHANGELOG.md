@@ -1,5 +1,11 @@
 # Cambios Recientes
 
+## [3.2.1] - 23/10/2023
+
+### Cambiado
+
+- 🐛 Se corrió los procesos de lint y las correcciones manuales indicadas
+
 ## [3.2.0] - 23/10/2023
 
 ### Agregado
