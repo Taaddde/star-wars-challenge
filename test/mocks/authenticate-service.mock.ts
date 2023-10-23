@@ -1,11 +1,12 @@
 import { UserRole } from '@app/db-mongoose/user/user.entity';
+import { UnauthorizedException } from '@nestjs/common';
 
 export class AuthenticateServiceMock {
-  async authenticate(username: string): Promise<string> {
+  async authenticate(_user, username: string): Promise<string> {
     if (username === 'valid-user') {
       return 'valid-token';
     } else {
-      return 'invalid-token';
+      throw new UnauthorizedException('Invalid credentials');
     }
   }
   async decodeJwtToken(token: string): Promise<any> {

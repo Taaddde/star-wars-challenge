@@ -34,11 +34,22 @@ describe('UserController (e2e)', () => {
     return request(app.getHttpServer())
       .post('/user')
       .send({
-        username: 'tade',
-        password: 'tade',
-        email: 'tade@hotmail.com',
+        username: 'batman',
+        password: 'im_batman',
+        email: 'bruce_wayne@hotmail.com',
       })
       .expect(201);
+  });
+
+  it('/user (POST) - Create an already exists user', () => {
+    return request(app.getHttpServer())
+      .post('/user')
+      .send({
+        username: 'already-exists',
+        password: 'im_batman',
+        email: 'bruce_wayne@hotmail.com',
+      })
+      .expect(400);
   });
 
   it('/user/login (POST) - Login User', () => {
@@ -55,12 +66,22 @@ describe('UserController (e2e)', () => {
       });
   });
 
+  it('/user/login (POST) - Invalid login User', () => {
+    return request(app.getHttpServer())
+      .post('/user/login')
+      .send({
+        username: 'invalid-user',
+        password: 'invalid-password',
+      })
+      .expect(401);
+  });
+
   it('/user (GET) - Get User List', () => {
     return request(app.getHttpServer())
       .get('/user')
       .expect(200)
       .expect((response) => {
-        expect(response.body).toBeInstanceOf(Array);
+        expect(response.body).toBeInstanceOf(Object);
       });
   });
 

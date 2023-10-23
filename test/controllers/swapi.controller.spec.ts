@@ -37,7 +37,6 @@ describe('SwapiController (e2e)', () => {
   it('/swapi (POST) - Populate database', () => {
     return request(app.getHttpServer())
       .post('/swapi')
-      .set('Authorization', 'admin-token')
       .expect(201);
   });
 });
