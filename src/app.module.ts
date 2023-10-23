@@ -1,5 +1,5 @@
 import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
-import { AppController } from './app.controller';
+import { HealthController } from './controllers/health.controller';
 import { DbMongooseModule } from '@app/db-mongoose';
 import { AppConfig } from './app.config';
 import { SwapiModule } from '@app/swapi';
@@ -22,7 +22,7 @@ import { SwapiController } from './controllers/swapi.controller';
     SwapiModule.forRoot({baseURL: AppConfig.swapi.baseUrl})
   ],
   controllers: [
-    AppController, 
+    HealthController, 
     UserController,
     MediaController,
     SwapiController
