@@ -1,5 +1,12 @@
 # Cambios Recientes
 
+## [4.0.0] - 23/10/2023
+
+### Cambiado
+
+- 🔄 Se reemplazó el nombre de "media" a "film", cambiando sus servicios, rutas, controladores y tests al nuevo nombre
+- 🔄 Se actualizó el archivo de postman
+
 ## [3.2.3] - 23/10/2023
 
 ### Agregado
