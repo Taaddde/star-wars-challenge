@@ -1,10 +1,10 @@
-import { Media } from '@app/db-mongoose/media/media.entity';
-import { MediaList } from '@app/db-mongoose/media/media.interface';
-import { MediaGenericResponseDto } from 'src/dtos/media.dto';
+import { Film } from '@app/db-mongoose/film/film.entity';
+import { IFilmList, IGenericResponse } from '@app/db-mongoose/film/film.interface';
+import { FilmGenericResponseDto } from 'src/dtos/film.dto';
 import { Types } from 'mongoose';
 
-export class MediaServiceMock {
-  async create(/*createMediaDto: Partial<Media>*/): Promise<Media> {
+export class FilmServiceMock {
+  async create(): Promise<Film> {
     return {
       _id: null,
       title: 'Batman',
@@ -18,11 +18,11 @@ export class MediaServiceMock {
     };
   }
 
-  async createAll(/*medias*/): Promise<string> {
+  async createAll(): Promise<string> {
     return 'Films successfully created';
   }
 
-  async findAll(): Promise<MediaList> {
+  async findAll(): Promise<IFilmList> {
     return {
       data: [
         {
@@ -91,7 +91,7 @@ export class MediaServiceMock {
     };
   }
 
-  async findOneById(/*id: string*/): Promise<Media | null> {
+  async findOneById(): Promise<Film | null> {
     return {
       _id: null,
       title: 'Batman',
@@ -105,11 +105,11 @@ export class MediaServiceMock {
     };
   }
 
-  async update(): Promise<MediaGenericResponseDto | null> {
-    return { message: 'Media successfully updated' };
+  async update(): Promise<IGenericResponse | null> {
+    return { message: 'Film successfully updated' };
   }
 
-  async remove(): Promise<MediaGenericResponseDto | null> {
-    return { message: 'Media successfully removed' };
+  async remove(): Promise<IGenericResponse | null> {
+    return { message: 'Film successfully removed' };
   }
 }

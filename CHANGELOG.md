@@ -12,7 +12,7 @@
 ### Cambiado
 
 - 🐛 Se corrigieron y añadieron algunos tests para users y swapi
-- 🐛 Se corrigieron los mocks para las listas de users y media
+- 🐛 Se corrigieron los mocks para las listas de users y peliculas
 
 ## [3.2.1] - 23/10/2023
 
@@ -46,7 +46,7 @@
 
 ### Agregado
 
-- ✨ Tests para los endpoints de media
+- ✨ Tests para los endpoints de film
 - ✨ Tests para los endpoints de swapi
 
 ## [2.5.0] - 22/10/2023
@@ -110,7 +110,7 @@
 - ✨ Servicios para user, CRUD, autenticación y login
 - ✨ Encriptación de password al momento de guardar el usuario
 - ✨ Endpoint POST /user para la creación de usuario
-- ✨ DTO's para validación de creación de usuario y media
+- ✨ DTO's para validación de creación de usuario y peliculas
 - ✨ Ahora la entity de user esta mas completa y con mas información
 - ✨ Nuevo interceptor "class-validator" para hacer una respuesta 400 genérica
 
@@ -120,7 +120,7 @@
 
 - ✨ Mongoose al proyecto
 - ✨ Librería que gestiona la base de datos en mongoose
-- ✨ Inicialización de "media" y "user" como schemas de la base de datos
+- ✨ Inicialización de "film" y "user" como schemas de la base de datos
 - ✨ Conexión del módulo de mongoose con la app principal
 
 

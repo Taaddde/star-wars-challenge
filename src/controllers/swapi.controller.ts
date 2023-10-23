@@ -1,13 +1,13 @@
 import { Controller, Post, Version } from '@nestjs/common';
 import { SwapiService } from '@app/swapi';
 import { SwapiFilmFormattedDto } from '../dtos/swapi.dto';
-import { MediaService } from '@app/db-mongoose/media/media.service';
+import { FilmService } from '@app/db-mongoose/film/film.service';
 
 @Controller('swapi')
 export class SwapiController {
   constructor(
     private readonly swapiService: SwapiService,
-    private readonly mediaService: MediaService,
+    private readonly filmService: FilmService,
   ) {}
 
   @Post()
@@ -15,6 +15,6 @@ export class SwapiController {
   async populateDatabase(): Promise<any> {
     const films = await this.swapiService.getFilms();
     const formattedFilms = films.map((film) => new SwapiFilmFormattedDto(film));
-    return this.mediaService.createAll(formattedFilms);
+    return this.filmService.createAll(formattedFilms);
   }
 }

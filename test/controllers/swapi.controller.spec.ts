@@ -3,10 +3,10 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { AppModule } from '../../src/app.module';
 import * as request from 'supertest';
 
-import { MediaServiceMock } from '../mocks/media-service.mock';
+import { FilmServiceMock } from '../mocks/film-service.mock';
 import { AuthenticateServiceMock } from '../mocks/authenticate-service.mock';
 
-import { MediaService } from '../../libs/db-mongoose/src/media/media.service';
+import { FilmService } from '../../libs/db-mongoose/src/film/film.service';
 import { AuthenticateService } from '../../libs/authenticate/src';
 import { SwapiService } from '../../libs/swapi/src';
 import { SwapiServiceMock } from '../mocks/swapi-service.mock';
@@ -18,8 +18,8 @@ describe('SwapiController (e2e)', () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     })
-      .overrideProvider(MediaService)
-      .useClass(MediaServiceMock)
+      .overrideProvider(FilmService)
+      .useClass(FilmServiceMock)
       .overrideProvider(SwapiService)
       .useClass(SwapiServiceMock)
       .overrideProvider(AuthenticateService)

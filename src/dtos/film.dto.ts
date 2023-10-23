@@ -1,19 +1,19 @@
 import { OmitType } from '@nestjs/mapped-types';
-import { Media } from '@app/db-mongoose/media/media.entity';
+import { Film } from '@app/db-mongoose/film/film.entity';
 
-export class CreateMediaDto extends OmitType(Media, [
+export class CreateFilmDto extends OmitType(Film, [
   '_id',
   'createdAt',
   'updatedAt',
 ] as const) {}
 
-export class MediaListDto {
-  data: Array<Media>;
+export class FilmListDto {
+  data: Array<Film>;
   page: number;
   limit: number;
 }
 
-export class MediaDetailResponseDto {
+export class FilmDetailResponseDto {
   _id: string;
   title: string;
   description: string;
@@ -33,7 +33,7 @@ export class MediaDetailResponseDto {
   }
 }
 
-export class MediaResponseDto {
+export class FilmResponseDto {
   _id: string;
   title: string;
   description: string;
@@ -47,6 +47,6 @@ export class MediaResponseDto {
   }
 }
 
-export class MediaGenericResponseDto {
+export class FilmGenericResponseDto {
   message: string;
 }

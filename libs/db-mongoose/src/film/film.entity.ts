@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types, now } from 'mongoose';
 
 @Schema({ timestamps: true })
-export class Media {
+export class Film {
   @Prop({ default: null })
   _id: Types.ObjectId;
 
@@ -42,6 +42,6 @@ export class Media {
   updatedAt: Date;
 }
 
-export type MediaDocument = Media & Document;
+export type FilmDocument = Film & Document;
 
-export const MediaSchema = SchemaFactory.createForClass(Media);
+export const FilmSchema = SchemaFactory.createForClass(Film);

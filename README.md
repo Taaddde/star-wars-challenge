@@ -161,9 +161,9 @@ To run this project, you will need to add the following environment variables to
 ```
 
 ### Films
-#### Create a media document (only for admin users)
+#### Create a film document (only for admin users)
 ```http
-  POST /media
+  POST /film
 ```
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
@@ -187,18 +187,18 @@ To run this project, you will need to add the following environment variables to
 ##### Response
 ```json
   {
-    "message": "Media successfully created"
+    "message": "Film successfully created"
   }
 ```
 
-#### Update a media document (only for admin users)
+#### Update a film document (only for admin users)
 ```http
-  PATCH /media/:id
+  PATCH /film/:id
 ```
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `Authentication` | `string` | **Required**. Your JWT token |
-| `id` | `string` | ID of the media |
+| `id` | `string` | ID of the film |
 
 ##### Body
 ```json
@@ -218,13 +218,13 @@ To run this project, you will need to add the following environment variables to
 ##### Response
 ```json
   {
-    "message": "Media successfully updated"
+    "message": "Film successfully updated"
   }
 ```
 
 #### Get list of films (only for regular users)
 ```http
-  GET /media
+  GET /film
 ```
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
@@ -250,12 +250,12 @@ To run this project, you will need to add the following environment variables to
 
 #### Get film detail (only for regular users)
 ```http
-  GET /media/:id
+  GET /film/:id
 ```
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `Authentication` | `string` | **Required**. Your JWT token |
-| `id` | `string` | ID of the media |
+| `id` | `string` | ID of the film |
 
 ##### Response
 ```json

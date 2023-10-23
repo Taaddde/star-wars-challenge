@@ -3,21 +3,21 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { AppModule } from '../../src/app.module';
 import * as request from 'supertest';
 
-import { MediaServiceMock } from '../mocks/media-service.mock';
+import { FilmServiceMock } from '../mocks/film-service.mock';
 import { AuthenticateServiceMock } from '../mocks/authenticate-service.mock';
 
-import { MediaService } from '../../libs/db-mongoose/src/media/media.service';
+import { FilmService } from '../../libs/db-mongoose/src/film/film.service';
 import { AuthenticateService } from '../../libs/authenticate/src';
 
-describe('MediaController (e2e)', () => {
+describe('FilmController (e2e)', () => {
   let app: INestApplication;
 
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     })
-      .overrideProvider(MediaService)
-      .useClass(MediaServiceMock)
+      .overrideProvider(FilmService)
+      .useClass(FilmServiceMock)
       .overrideProvider(AuthenticateService)
       .useClass(AuthenticateServiceMock)
       .compile();
@@ -30,9 +30,9 @@ describe('MediaController (e2e)', () => {
     await app.close();
   });
 
-  it('/media (POST) - Create Media', () => {
+  it('/film (POST) - Create Film', () => {
     return request(app.getHttpServer())
-      .post('/media')
+      .post('/film')
       .set('Authorization', 'admin-token')
       .send({
         characters: ['Batman', 'Guason'],
@@ -45,10 +45,10 @@ describe('MediaController (e2e)', () => {
       .expect(201);
   });
 
-  it('/media/:id (PATCH) - Update Media', () => {
-    const mediaId = 'your-media-id';
+  it('/film/:id (PATCH) - Update Film', () => {
+    const filmId = 'your-film-id';
     return request(app.getHttpServer())
-      .patch(`/media/${mediaId}`)
+      .patch(`/film/${filmId}`)
       .set('Authorization', 'admin-token')
       .send({
         description: 'Nueva descripción',
@@ -56,41 +56,41 @@ describe('MediaController (e2e)', () => {
       .expect(200);
   });
 
-  it('/media/:id (DELETE) - Delete Media', () => {
-    const mediaId = 'your-media-id';
+  it('/film/:id (DELETE) - Delete Film', () => {
+    const filmId = 'your-film-id';
     return request(app.getHttpServer())
-      .delete(`/media/${mediaId}`)
+      .delete(`/film/${filmId}`)
       .set('Authorization', 'admin-token')
       .expect(200);
   });
 
-  it('/media (GET) - Get Media List', () => {
+  it('/film (GET) - Get Film List', () => {
     return request(app.getHttpServer())
-      .get('/media')
+      .get('/film')
       .set('Authorization', 'regular-token')
       .expect(200);
   });
 
-  it('/media/:id (GET) - Get Movie Details', () => {
-    const mediaId = 'your-media-id';
+  it('/film/:id (GET) - Get Movie Details', () => {
+    const filmId = 'your-film-id';
     return request(app.getHttpServer())
-      .get(`/media/${mediaId}`)
+      .get(`/film/${filmId}`)
       .set('Authorization', 'regular-token')
       .expect(200);
   });
 
   it('Authorize error - Admin user enter to a Regular user resource', () => {
-    const mediaId = 'your-media-id';
+    const filmId = 'your-film-id';
     return request(app.getHttpServer())
-      .get(`/media/${mediaId}`)
+      .get(`/film/${filmId}`)
       .set('Authorization', 'admin-token')
       .expect(403);
   });
 
   it('Authorize error - Regular user enter to a Admin user resource', () => {
-    const mediaId = 'your-media-id';
+    const filmId = 'your-film-id';
     return request(app.getHttpServer())
-      .patch(`/media/${mediaId}`)
+      .patch(`/film/${filmId}`)
       .set('Authorization', 'regular-token')
       .expect(403);
   });
