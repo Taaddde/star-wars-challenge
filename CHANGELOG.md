@@ -1,5 +1,13 @@
 # Cambios Recientes
 
+## [3.2.0] - 23/10/2023
+
+### Agregado
+
+- ✨ Controlador para hacer un check health
+- 🔄 Se eliminó el app controller, ya que fué reemplazado por el health
+- 🔄 Se actualizó el archivo de postman
+
 ## [3.1.0] - 23/10/2023
 
 ### Agregado
